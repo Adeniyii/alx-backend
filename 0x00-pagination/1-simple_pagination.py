@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Implements a simple pagination mechanism for in the Server class"""
-from typing import List
+from typing import List, Tuple
 import csv
 index_range = __import__('0-simple_helper_function').index_range
 
@@ -31,5 +31,5 @@ class Server:
         assert page > 0
         assert page_size > 0
 
-        start, stop = index_range(page, page_size)
-        return self.dataset()[start: stop]
+        paged: Tuple[int, int] = index_range(page, page_size)
+        return self.dataset()[paged[0]: paged[1]]
