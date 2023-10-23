@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""""""
+"""Implements a simple pagination mechanism for in the Server class"""
 from typing import List
 import csv
 index_range = __import__('0-simple_helper_function').index_range
