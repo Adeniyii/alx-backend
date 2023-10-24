@@ -40,21 +40,21 @@ class Server:
 
     def get_hyper_index(
             self, index: Any,
-            page_size: int = 10) -> Dict:
+            page_size: int = 10) -> Dict[str, Any]:
         """better pagination mechanism."""
         idx_data = self.indexed_dataset()
 
-        # assert isinstance(index, int)
         assert index < len(idx_data)
 
-        found_idx = False
         out = {
             "index": index,
             "data": [],
             "page_size": 0,
             "next_index": 0,
         }
+
         n_count = 0
+        found_idx = False
 
         for k, v in idx_data.items():
             if n_count >= page_size:
