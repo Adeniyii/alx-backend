@@ -8,11 +8,13 @@ from cache.base_caching import BaseCaching
 class BasicCache(BaseCaching):
 	"""A basic cache datastructure."""
 	def put(self, key, item):
+		"""Inserts an item into the cache using a simple caching algo."""
 		if key is None or item is None:
 			return
 		self.cache_data[key] = item
 
 	def get(self, key):
+		"""Retrieves an item from the cache using a simple caching algo."""
 		if key is None:
 			return
 		return self.cache_data.get(key, None)
