@@ -3,7 +3,7 @@
 0-basic-cache.py implements a class `BasicCache` that
 inherits from `BaseCaching` and is a caching system.
 """
-from cache.base_caching import BaseCaching
+BaseCaching = __import__('base_caching').BaseCaching
 
 
 class BasicCache(BaseCaching):

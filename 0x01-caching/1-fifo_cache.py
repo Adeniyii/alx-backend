@@ -3,7 +3,7 @@
 1-fifo_cache implements a `FIFOCache` that inherits
 from BaseCaching and is a caching system.
 """
-from cache.base_caching import BaseCaching
+BaseCaching = __import__('base_caching').BaseCaching
 
 
 class FIFOCache(BaseCaching):

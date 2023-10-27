@@ -3,7 +3,7 @@
 2-lifo_cache implements a `LIFOCache` that inherits
 from BaseCaching and is a caching system.
 """
-from cache.base_caching import BaseCaching
+BaseCaching = __import__('base_caching').BaseCaching
 
 
 class LIFOCache(BaseCaching):
