@@ -20,22 +20,32 @@ class LRUCache(BaseCaching):
             if key not in self.cache_data.keys():
                 dk = type(self).lru_keys[0]
                 self.cache_data.pop(dk)
+                self.dequeue(dk)
                 print("DISCARD: {}".format(dk))
 
         self.cache_data[key] = item
-        self.enqueue(key)
+        self.shift(key)
 
     def get(self, key):
         """Retrieve an item."""
         if key is None or key not in self.cache_data.keys():
             return
-        self.enqueue(key)
+        self.shift(key)
 
         return self.cache_data.get(key)
 
-    def enqueue(self, key):
+    def shift(self, key):
         """Shift key to end of the queue."""
-        type(self).lru_keys.remove(key)
+        self.dequeue(key)
+        self.enqueue(key)
+
+    def dequeue(self, key):
+        """Remove key from queue."""
+        if key in type(self).lru_keys:
+            type(self).lru_keys.remove(key)
+
+    def enqueue(self, key):
+        """Add key to queue."""
         type(self).lru_keys.append(key)
 
 
