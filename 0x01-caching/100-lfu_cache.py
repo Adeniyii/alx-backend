@@ -55,7 +55,6 @@ class LFUCache(BaseCaching):
         """update value of the lru item."""
         min_val = 1
         min_k = ""
-        print("update lfu: {}".format(self.lfu_dict))
         rev_keys = list(self.lfu_dict.keys())
         rev_keys.reverse()
 
@@ -90,7 +89,17 @@ if __name__ == "__main__":
     my_cache.print_cache()
     my_cache.put("I", "I")
     my_cache.print_cache()
+    print(my_cache.get("I"))
+    print(my_cache.get("H"))
+    print(my_cache.get("I"))
+    print(my_cache.get("H"))
+    print(my_cache.get("I"))
+    print(my_cache.get("H"))
     my_cache.put("J", "J")
     my_cache.print_cache()
     my_cache.put("K", "K")
+    my_cache.print_cache()
+    my_cache.put("L", "L")
+    my_cache.print_cache()
+    my_cache.put("M", "M")
     my_cache.print_cache()
