@@ -24,8 +24,8 @@ class FIFOCache(BaseCaching):
     def get(self, key):
         """Retrieve an item."""
         if key is None:
-            return
-        return self.cache_data[key]
+            return None
+        return self.cache_data.get(key)
 
 
 if __name__ == "__main__":

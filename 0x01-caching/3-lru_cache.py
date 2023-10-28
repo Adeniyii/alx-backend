@@ -13,15 +13,14 @@ class LRUCache(BaseCaching):
 
     def put(self, key, item):
         """Insert item using a LRU algo."""
-        dk = None
         if key is None or item is None:
             return
         if BaseCaching.MAX_ITEMS == len(self.cache_data):
             if key not in self.cache_data.keys():
-                dk = type(self).lru_keys[0]
-                self.cache_data.pop(dk)
-                self.dequeue(dk)
-                print("DISCARD: {}".format(dk))
+                queue_key = type(self).lru_keys[0]
+                self.cache_data.pop(queue_key)
+                self.dequeue(queue_key)
+                print("DISCARD: {}".format(queue_key))
 
         self.cache_data[key] = item
         self.shift(key)
