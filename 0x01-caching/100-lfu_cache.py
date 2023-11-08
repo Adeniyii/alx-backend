@@ -59,7 +59,7 @@ class LFUCache(BaseCaching):
         rev_keys.reverse()
 
         for k in rev_keys:
-            if self.lfu_dict[k] <= min_val:
+            if self.lfu_dict[k] < min_val:
                 min_val = self.lfu_dict[k]
                 min_k = k
 
