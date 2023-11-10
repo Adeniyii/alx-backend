@@ -39,7 +39,7 @@ class Server:
         return self.__indexed_dataset
 
     def get_hyper_index(
-            self, index: Any = None,
+            self, index: int = None,
             page_size: int = 10) -> Dict[str, Any]:
         """better pagination mechanism."""
         idx_data = self.indexed_dataset()
